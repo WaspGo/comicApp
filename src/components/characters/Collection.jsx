@@ -2,6 +2,7 @@ import { Component } from "react";
 import CharactersItem from "./CharactersItem";
 import CharacterDescription from "./CharacterDesc";
 import ComicService from "../../services/ComicServise";
+import Errorboundary from "../ErrorBoundary/ErrorBoundary";
 import vision from "../../assets/vision.png";
 import Button from "../Button";
 import Spinner from "../spinner";
@@ -81,7 +82,9 @@ class Collection extends Component {
             load more
           </Button>
         </div>
-        <CharacterDescription selectedChar={this.state.selectedChar} />
+        <Errorboundary>
+          <CharacterDescription selectedChar={this.state.selectedChar} />
+        </Errorboundary>
 
         <img
           src={vision}

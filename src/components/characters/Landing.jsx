@@ -2,6 +2,7 @@ import Header from "../Header";
 import Randominfo from "./Randominfo";
 import Collection from "./Collection";
 import { Component } from "react";
+import Errorboundary from "../ErrorBoundary/ErrorBoundary";
 
 class LandingPage extends Component {
   constructor(props) {
@@ -11,8 +12,12 @@ class LandingPage extends Component {
     return (
       <div className="relative mx-auto w-[1100px] py-[50px] font-sans">
         <Header />
-        <Randominfo />
-        <Collection />
+        <Errorboundary>
+          <Randominfo />
+        </Errorboundary>
+        <Errorboundary>
+          <Collection />
+        </Errorboundary>
       </div>
     );
   }
